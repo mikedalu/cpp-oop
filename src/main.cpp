@@ -9,7 +9,6 @@ int main(int arg_count, char *args[]) {
     List simleList;
     simleList.name = string(args[1]);
     simleList.print_menu(); 
-  
 
   }  else{
     cout<< "User not supplied. exiting the program " <<endl;

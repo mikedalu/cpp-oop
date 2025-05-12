@@ -35,40 +35,27 @@ void List::add_item(){
 }
 
 void List::delete_item(){
-   if(list.size() == 0){
-    cout << "List is empty" << endl;
-    return; 
-  for(unsigned int i = 0; i < list.size(); i++){
-    cout << i << " - " << list[i] << endl;
-    cout << "Enter the index of the item to delete: \n";
-    if(i == list.size()){
-      cout << "Item not found in the list" << endl;
+   cout<< "Delete Item *** \n";
+    cout<< "Enter the index of the item to delete: \n";
 
-      print_choice();
-    } else{
-      int choiceNum;
-      cin >> choiceNum;
-      if(choiceNum < 0 || choiceNum >= list.size()){
-        cout << "Invalid index" << endl;
-        print_choice();
+    if(list.size()){
+      for(unsigned int i = 0; i < list.size(); i++){
+        cout << i << " - " << list[i] <<endl;
       }
-      cout << "Deleting item at index " << choiceNum << endl;
-      cout << "Item deleted from the list" << endl;
-      list.erase(list.begin() + i);
-      print_choice();
-    }
-  }
-  cout << "Item not found in the list" << endl;
- 
-}
 
-  cout << "List is empty" << endl;
-  return;
+    }
+    int choiceNum;
+    cin >> choiceNum;
+    list.erase(list.begin()+choiceNum);
+    cout << "Item deleted from the list" << endl;
+    print_choice();
+  
 }
 
 void List::print_list(){
   if(list.size() == 0){
     cout << "List is empty" << endl;
+    print_choice();
     return;
   }
   cout << "List of items: \n";
@@ -88,6 +75,7 @@ void List::print_choice(){
     print_menu();
   } else{
     cout << "Invalid choice" << endl;
+    print_choice();
 
   }
 }
